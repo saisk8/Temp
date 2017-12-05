@@ -7,6 +7,6 @@
 	}
 	else
 	{
-		print "<span style='display:block;border:solid black thick;'><br/><center><b>Visit count: </b><h1>".$_SESSION["count"]++."</h1></center><span>";
+		print "<center><h1>Visit count:".$_SESSION["count"]++."</h1></center>";
 	}
 ?>
