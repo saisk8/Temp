@@ -6,16 +6,17 @@ print start_html();
 
 $name = param("name");
 $age  = param("age");
-$con  = DBI->connect( "DBI:mysql:test", "root", "123()" );
+$con  = DBI->connect( "DBI:mysql:test", "root", "" );
 
-$query1 = $con->prepare("insert into student2 values(?,?)");
+$query1 = $con->prepare("insert into student values(?,?)");
 $query1->execute( $name, $age );
 
-$query2 = $con->prepare("select * from student2");
+$query2 = $con->prepare("select * from student");
 $query2->execute();
 print "Data in table:<br>";
-while ( @row = $query2->fetchrow_array() ) {
-    print "@row <br>";
+print "<table>";
+while ( ( $name, $age ) = $query2->fetchrow() ) {
+    print "<tr><td> $name </td><td> $age </td></tr>";
 }
-
+print "</table>";
 print end_html();

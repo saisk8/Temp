@@ -1,22 +1,22 @@
 <html>
-<head>
-<title> Program 12 </title>
-</head>
+<title>welcome template for books</title>
 <body>
-<center>
-<table border=5 cellpadding=5 cellspacing=5> <tr>
-<th>ID</th>
-<th>NAME</th>
-<th>DESCRIPTION</th>
-<th>PRICE</th>
-</tr>
+<p>Entered book id is <%= @bookid %> </p>
+<table border=1>
+<tr><th>book id</th><th>book name</th><th>details</th><th>price</th></tr>
+<% @bookz.each do |bk|
+@id=bk.id
+@name=bk.name
+@descp=bk.description
+@price=bk.price %>
 <tr>
-<td><%=@id %></td> 
-<td><%=@name %></td> 
-<td><%=@description %></td> 
-<td><%=@price %></td>
-</tr> 
-</table> 
-</center> 
-</body> 
+<td> <%=@id %> </td>
+<td> <%=@name %></td>
+<td><%=@descp %></td>
+<td><%= @price %></td>
+</tr>
+<%end%>
+</table>
+</form>
+</body>
 </html>
