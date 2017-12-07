@@ -18,7 +18,7 @@ int crc(char input[], char output[], const char gp[], int mode) {
         else
           output[j + k] = '1';
       }
-  cout << "The checksum calculated is: " << output + strlen(input);
+  cout << "The checksum calculated is: " << output;
   for (j = 0; j < strlen(output); j++)
     if (output[j] == '1')
       return 1;
