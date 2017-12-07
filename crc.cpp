@@ -18,7 +18,6 @@ int crc(char input[], char output[], const char gp[], int mode) {
         else
           output[j + k] = '1';
       }
-  cout << "The checksum calculated is: " << output;
   for (j = 0; j < strlen(output); j++)
     if (output[j] == '1')
       return 1;
@@ -36,7 +35,7 @@ int main() {
 
   crc(input, output, gp, 1);
   cout << "\nThe transmitted message is: " << input << output + strlen(input);
-
+  cout << endl << "The checksum calculated is: " << output + strlen(input);
   cout << "\n\nEnter the recevied message in binary: ";
   cin >> receive;
 
