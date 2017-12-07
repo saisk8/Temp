@@ -2,16 +2,13 @@
 #include <math.h>
 #include <stdlib.h>
 #include <string.h>
-
 using namespace std;
 
 long int i, e, d, n, p, q, phi, cipher[50];
 
 int encrypt(char ch);
 char decrypt(long int ch);
-
 int gcd(long int a, long int b);
-int prime(int a);
 
 int main() {
   int i, len;
@@ -21,13 +18,11 @@ int main() {
   cin >> text;
   len = strlen(text);
 
-  do {
-    p = rand() % 100; // generate prime p
-  } while (!prime(p));
+  cout << "Enter the first prime number: ";
+  cin >> p;
 
-  do {
-    q = rand() % 100; // generate prime number q
-  } while (!prime(q));
+  cout << "Enter the second prime number: ";
+  cin >> q;
 
   n = p * q; // compute n and Φ
   phi = (p - 1) * (q - 1);
@@ -41,7 +36,7 @@ int main() {
   } while (((d * e) % phi) != 1);
 
   cout << "\n\nTwo prime numbers (p and q) are: " << p << " and " << q << endl;
-  cout << "n(p*q) = " << p << " * " << q << " = " << p * q << endl;
+  cout << "n(p*q) = " << p << " * " << q << " = " << n << endl;
   cout << "Φ(p-1)(q-1) = (" << p << "-1) * (" << q
        << "-1) = " << (p - 1) * (q - 1) << endl;
   cout << "Public key (n, e): (" << n << ", " << e << ")\n";
@@ -69,13 +64,6 @@ int gcd(long int a, long int b) {
   if (b == 0)
     return a;
   return gcd(b, a % b);
-}
-
-int prime(int a) {
-  for (i = 2; i < a; i++)
-    if ((a % i) == 0)
-      return 0;
-  return 1;
 }
 
 int encrypt(char ch) {
